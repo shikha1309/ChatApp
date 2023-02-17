@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "489604552157",
+    "project_id": "chatapp-c6f87",
+    "storage_bucket": "chatapp-c6f87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489604552157:android:ce194d565fd47eeb5e5234",
+        "android_client_info": {
+          "package_name": "com.shikha.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489604552157-nvmmomrkmnqjodba7cup5c502edfonrf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAHjP-tkJjiptHNfftEAo5dYUlpo24OiQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489604552157-nvmmomrkmnqjodba7cup5c502edfonrf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

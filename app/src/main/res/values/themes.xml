@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ChatApp" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#5c8a8a</item>
+        <item name="colorPrimaryDark">#334d4d</item>
+        <item name="colorAccent">#334d4d</item>
+
+    </style>
+</resources>
