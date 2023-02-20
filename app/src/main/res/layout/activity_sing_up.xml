@@ -8,6 +8,29 @@
     tools:context=".SignUpActivity"
     android:background="@color/white">
 
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:elevation="0dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ImageView
         android:id="@+id/appLogo"
         android:layout_width="200dp"
@@ -26,6 +49,7 @@
         android:layout_below="@+id/appLogo"
         android:background="@drawable/edt_background"
         android:hint="Enter Your Name"
+        android:inputType="text"
         android:paddingLeft="13dp" />
 
 
@@ -38,6 +62,7 @@
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/edtName"
         android:background="@drawable/edt_background"
+        android:inputType="textEmailAddress"
         android:hint="Enter Your Email"
         android:paddingLeft="13dp" />
 
@@ -49,6 +74,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:inputType="textPassword"
         android:background="@drawable/edt_background"
         android:hint=" Enter Your Password"
         android:paddingLeft="13dp" />
@@ -63,11 +89,12 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/edt_background"
+        android:inputType="textPassword"
         android:hint=" Confirm Your Password"
         android:paddingLeft="13dp" />
 
      <Button
-         android:id="@+id/btnSignup"
+         android:id="@+id/btnSignUp"
         android:layout_width="150dp"  
         android:layout_height="wrap_content"
         android:layout_below="@id/edtConfirmPassword"

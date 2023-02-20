@@ -26,9 +26,7 @@ class  MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        toolbar = findViewById(R.id.toolbarMain)
-
+         toolbar=findViewById(R.id.toolbarMain)
         textView =findViewById(R.id.userName)
         imageView= findViewById(R.id.profileImage)
         viewPager =findViewById(R.id.viewPager)
@@ -38,6 +36,7 @@ class  MainActivity : AppCompatActivity() {
         viewPagerAdapter.addFragment(ChatFragment(), "Chats")
         viewPagerAdapter.addFragment(SearchFragment() , "Search")
         viewPagerAdapter.addFragment(SettingsFragment(),"Settings")
+
         viewPager.adapter=viewPagerAdapter
         tabLayout.setupWithViewPager(viewPager)
         setUpToolbar()
@@ -46,9 +45,7 @@ class  MainActivity : AppCompatActivity() {
 
     private fun setUpToolbar() {
        setSupportActionBar(toolbar)
-        supportActionBar?.title = " "
-
-
+        supportActionBar?.title = "  "
     }
 
     internal  class ViewPagerAdapter(fragmentManager: FragmentManager):
