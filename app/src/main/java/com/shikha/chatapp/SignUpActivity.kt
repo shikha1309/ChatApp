@@ -39,11 +39,17 @@ class SignUpActivity : AppCompatActivity() {
         appLogo =findViewById(R.id.appLogo)
 
 
+
+
+
         btnSignup.setOnClickListener {
               val email = edtEmail.text.toString()
                val password =edtPassword.text.toString()
 
             signUp(email,password)
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 

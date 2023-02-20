@@ -9,11 +9,8 @@
     android:orientation="vertical"
     android:background="@color/white">
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
 
-    android:id="@+id/coordinatorLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,6 +50,7 @@
         </androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
@@ -74,5 +72,5 @@
 
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </LinearLayout>

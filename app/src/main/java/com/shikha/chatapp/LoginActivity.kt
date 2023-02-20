@@ -42,6 +42,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnLogin.setOnClickListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
 
