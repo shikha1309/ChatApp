@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var mAuth:FirebaseAuth
     var firebaseUser :FirebaseUser?=null
     private lateinit var refUsers: DatabaseReference
-    private var firebaseUserID: String=""
+
 
 
 
@@ -49,10 +49,7 @@ class LoginActivity : AppCompatActivity() {
 
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
-            val email = edtEmail.text.toString()
-            val password = edtPassword.text.toString()
-
-            login(email, password);
+            loginUser()
         }
     }
 
@@ -67,25 +64,46 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(email: String ,password:String){
+    private fun loginUser(){
 
-        // Logic for logging user
+        val email: String= edtEmail.text.toString()
+        val password: String= edtPassword.text.toString()
 
-        mAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
 
-                    val intent = Intent(this@LoginActivity,MainActivity::class.java )
-                    startActivity(intent)
-                    finish()
 
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(this@LoginActivity , " User does not Exist", Toast.LENGTH_SHORT).show()
-                }
-            }
+       if (email=="")
+        {
+            Toast.makeText(this@LoginActivity, " Please Write Your Email Name", Toast.LENGTH_SHORT).show()
+        }
+        else if (password=="")
+        {
+            Toast.makeText(this@LoginActivity, " Please Enter Your  Password", Toast.LENGTH_SHORT).show()
+        }
 
+     else{
+
+           // Logic for logging user
+           mAuth.signInWithEmailAndPassword(email, password)
+               .addOnCompleteListener(this) { task ->
+                   if (task.isSuccessful) {
+                       // Sign in success, update UI with the signed-in user's information
+
+                       val intent = Intent(this@LoginActivity,MainActivity::class.java )
+                       intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                       startActivity(intent)
+                       finish()
+
+                   }
+                   else {
+                       // If sign in fails, display a message to the user.
+                       Toast.makeText(this@LoginActivity, " Error Message: " + task.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
+                   }
+               }
+
+
+
+
+     }
     }
 
 }

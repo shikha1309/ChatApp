@@ -38,7 +38,7 @@
 
 
             <TextView
-                android:id="@+id/userName"
+                android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Name"
@@ -64,13 +64,5 @@
         android:layout_height="match_parent">
 
     </androidx.viewpager.widget.ViewPager>
-
-
-
-
-
-
-
-
 
 </LinearLayout>
