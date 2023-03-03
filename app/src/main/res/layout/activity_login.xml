@@ -27,7 +27,7 @@
         android:layout_marginLeft="20dp"
         android:inputType="text"
         android:background="@drawable/edt_background"
-        android:hint=" Enter Your Name"
+        android:hint=" Enter Your Email"
         android:paddingLeft="13dp" />
 
     <EditText
