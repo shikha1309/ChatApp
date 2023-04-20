@@ -52,42 +52,35 @@ class  MainActivity : AppCompatActivity() {
         viewPager.adapter = viewPagerAdapter
         tabLayout.setupWithViewPager(viewPager)
         setUpToolbar()
+
          // This need  for Display Name and Profile  Picture Initializations
         firebaseUser =FirebaseAuth.getInstance().currentUser
         refUsers= firebaseUser?.let {
             FirebaseDatabase.getInstance().reference.child("Users").child(
-                it.uid)
+                it.uid )
         }
 
         // Display Name and Profile Picture
-        refUsers!!.addValueEventListener(object : ValueEventListener{
+        refUsers?.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 //  For accessing the profile and name // we have to create the data class that is model classes //and form where we retrieve the profile and Name here
-              if (snapshot.exists()) {
-                  // This will import user model class
-                  val  user:Users? =snapshot.getValue(Users:: class.java)
-                  if (user != null) {
-                      userName.text=user.getUserName()
-                  }
-                  if (user != null) {
-                      Picasso.get().load(user.getProfile()).into(profileImage)
-                  }
+                if (snapshot.exists()) {
+                    // This will import user model class
+                    val  user:Users? =snapshot.getValue(Users:: class.java)
+                    if (user != null) {
+                            userName.text=user.getUserName()
+                    }
+                    if (user != null) {
+                        Picasso.get().load(user.getProfile()).into(profileImage)
+                    }
 
 
-
-              }
+                }
             }
-
             override fun onCancelled(error: DatabaseError) {
-
             }
-
         })
-
-
     }
-
-
     private fun setUpToolbar() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = "  "

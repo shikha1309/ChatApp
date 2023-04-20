@@ -84,7 +84,7 @@ class LoginActivity : AppCompatActivity() {
 
            // Logic for logging user
            mAuth.signInWithEmailAndPassword(email, password)
-               .addOnCompleteListener(this) { task ->
+               .addOnCompleteListener { task ->
                    if (task.isSuccessful) {
                        // Sign in success, update UI with the signed-in user's information
 
@@ -92,6 +92,7 @@ class LoginActivity : AppCompatActivity() {
                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                        startActivity(intent)
                        finish()
+
 
                    }
                    else {

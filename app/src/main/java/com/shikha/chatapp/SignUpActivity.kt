@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 
@@ -19,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase
 class SignUpActivity : AppCompatActivity() {
 
 
-    private lateinit var toolbar:Toolbar
+    private lateinit var toolbarS:Toolbar
     private lateinit var mAuth:FirebaseAuth
     private lateinit var refUsers:DatabaseReference
     private var firebaseUserID: String=""
@@ -30,7 +29,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sing_up)
+        setContentView(R.layout.activity_sign_up)
 
         FirebaseApp.initializeApp(this)
           mAuth= FirebaseAuth.getInstance()       // Just connecting the firebase   // Initializing the firebase
@@ -39,10 +38,10 @@ class SignUpActivity : AppCompatActivity() {
           edtPassword=findViewById(R.id.edtPassword)
          edtConfirmPassword= findViewById(R.id.edtConfirmPassword)
         val btnSignup: Button= findViewById(R.id.btnSignUp)
-        toolbar=findViewById(R.id.toolbarSignup)
+        toolbarS=findViewById(R.id.toolbarSignup)
         setUpToolbar()
 
-
+        // Applying on click Listener  on Button
         btnSignup.setOnClickListener {
 
             signUp()              // Calling my Function
@@ -52,10 +51,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
       private fun setUpToolbar() {
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbarS)
         supportActionBar?.title = " SIGN IN  "
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toolbar.setNavigationOnClickListener{
+        toolbarS.setNavigationOnClickListener{
             val intent = Intent (this@SignUpActivity , LoginActivity:: class.java)
             startActivity(intent)
             finish()
@@ -91,11 +90,9 @@ class SignUpActivity : AppCompatActivity() {
         // if all ok the save the data inside the firebase database
         else
         {
-
-
             // logic for creating user
-        mAuth  .createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
+            mAuth  .createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                    firebaseUserID=mAuth.currentUser!!.uid
                     refUsers=FirebaseDatabase.getInstance("https://chatapp-c6f87-default-rtdb.firebaseio.com/").reference.child("Users").child(firebaseUserID)
@@ -115,13 +112,10 @@ class SignUpActivity : AppCompatActivity() {
                             if (task.isSuccessful)
                             {
                                 val intent = Intent(this@SignUpActivity,MainActivity::class.java )
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                                 finish()
-
-
                             }
-
                         }
                 }
                 else {
@@ -132,9 +126,5 @@ class SignUpActivity : AppCompatActivity() {
 
 
         }
-
-
-
-
     }
 }

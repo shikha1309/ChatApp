@@ -1,16 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="30dp"
     tools:context=".Fragment.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/black"
-        android:gravity="center"/>
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="5dp">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/cover_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/cover"
+                android:scaleType="centerCrop">
+
+            </ImageView>
+
+             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_Image_settings"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="140dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/person">
+
+            </de.hdodenhof.circleimageview.CircleImageView>
+            
+            <TextView
+                android:id="@+id/username_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:layout_below="@id/profile_Image_settings"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginBottom="20dp">
+
+            </TextView>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardView1"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+        
+        <ImageView
+            android:id="@+id/set_facebook"
+            android:src="@drawable/insta"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="35dp"
+            android:layout_gravity="center">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/set_Instagram"
+            android:src="@drawable/insta"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="35dp"
+            android:layout_gravity="center">
+
+        </ImageView>
+
+
+        <ImageView
+            android:id="@+id/twitter"
+            android:src="@drawable/insta"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center">
+
+        </ImageView>
+
+    </LinearLayout>
+
+</RelativeLayout>

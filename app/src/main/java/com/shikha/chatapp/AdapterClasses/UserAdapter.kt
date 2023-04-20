@@ -1,11 +1,15 @@
 package com.shikha.chatapp.AdapterClasses
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.shikha.chatapp.MessageChatActivity
 import com.shikha.chatapp.ModelClasses.Users
 import com.shikha.chatapp.R
 import com.squareup.picasso.Picasso
@@ -29,14 +33,12 @@ class UserAdapter(
        this.mContext =mContext
        this.mUsers = mUsers
        this.isChatCheck=isChatCheck
-
-
    }
 
 
     override fun onCreateViewHolder(viewGroup : ViewGroup, viewType: Int): ViewHolder {
         val view :View = LayoutInflater.from(mContext).inflate(R.layout.user_search_item_layout ,viewGroup ,false)
-        return  UserAdapter.ViewHolder(view)  // now userAdapter has know that this layout has these Controllers
+         return  ViewHolder(view)  // now userAdapter has know that this layout has these Controllers
     }
 
     override fun getItemCount(): Int {
@@ -47,8 +49,33 @@ class UserAdapter(
     override fun onBindViewHolder(holder: ViewHolder, i: Int) {
         // data which will Display
         val  user:Users =mUsers[i]
-       holder.userNameTxt.text= user.getUserName()
+       holder.userNameTxt.text= user!!.getUserName()
         Picasso.get().load(user.getProfile()).placeholder(R.drawable.person).into(holder.profileImageView)
+
+        holder.itemView.setOnClickListener {
+            val options = arrayOf<CharSequence>(
+                "Send Message",
+                 "Visit Profile"
+
+            )
+            val builder  : AlertDialog.Builder = AlertDialog.Builder(mContext)
+            builder.setTitle("You want to?")
+            builder.setItems(options, DialogInterface.OnClickListener{ dialog, which ->
+                if ( which==0) {
+                    // This will open Chat Activity
+                    // visit id = that person that i will click
+
+
+                    val intent = Intent(mContext ,MessageChatActivity::class.java)
+                    intent.putExtra("visit_id" , user.getUID())
+                    mContext.startActivity(intent   )
+                }
+
+
+            })
+
+
+        }
 
 
 
